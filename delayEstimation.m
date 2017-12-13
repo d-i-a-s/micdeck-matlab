@@ -42,7 +42,7 @@ for i= 0:1:(length(ptstamp) - 2)
     plot(times, plt, 'r')
 end
 
-%%
+%% Plots data taking into account a time stamp after the communication stablized
 figure(2);
 hold all;
 
@@ -56,8 +56,9 @@ plt = prec((i*psize + 1):end);
 times = (ptstamp(i + 1) - 1/pfs*(psize - 1))*ones(size(plt)) + (0:1:(size(plt, 1) - 1))' * 1/pfs;
 plot(times, plt, 'r')
 
-%%
+%% Plots time stamps
 figure(3)
 hold all;
 plot(ctstamp, 'b')
 plot(ptstamp, 'r')
+legend('Crazyflie time stamps', 'PC time stamps')
